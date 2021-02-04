@@ -18,6 +18,10 @@ import { green, orange } from '@material-ui/core/colors';
 import 'fontsource-roboto';
 
 import Typography from '@material-ui/core/Typography';
+import Container from '@material-ui/core/Container';
+
+import Paper from '@material-ui/core/Paper';
+import Grid from '@material-ui/core/Grid';
 
 const useStyles = makeStyles({
 	root: {
@@ -31,19 +35,19 @@ const useStyles = makeStyles({
 });
 
 const theme = createMuiTheme({
-  typography: {
-    h2: {
-      fontSize: 36,
-      marginBottom: 15,
-    },
-  },
+	typography: {
+		h2: {
+			fontSize: 36,
+			marginBottom: 15,
+		},
+	},
 	palette: {
 		primary: {
 			main: green[400],
-    },
-    secondary: {
-      main: orange[400],
-    }
+		},
+		secondary: {
+			main: orange[400],
+		},
 	},
 });
 
@@ -80,25 +84,43 @@ function CheckboxExample() {
 function App() {
 	return (
 		<ThemeProvider theme={theme}>
-			<div className='App'>
-				<Typography variant='h2' component='div'>Welcome to MUI</Typography>
-				<Typography variant='subtitle1'>Learn how to use Material-UI</Typography>
-				<ButtonStyled />
-				<TextField
-					variant='outlined'
-					color='secondary'
-					// types ex: date, time, email
-					type='email'
-					label='Email'
-					// can set value, placeholder only appears when focus on text field
-					placeholder='test@test.com'
-				/>
-				<CheckboxExample />
-				<ButtonGroup variant='contained' color='primary'>
-					<Button startIcon={<SaveIcon />}>Save</Button>
-					<Button startIcon={<DeleteIcon />}>Discard</Button>
-				</ButtonGroup>
-			</div>
+			<Container maxWidth='xs'>
+				<div className='App'>
+					<Typography variant='h2' component='div'>
+						Welcome to MUI
+					</Typography>
+					<Typography variant='subtitle1'>
+						Learn how to use Material-UI
+					</Typography>
+					<ButtonStyled />
+					<TextField
+						variant='outlined'
+						color='secondary'
+						// types ex: date, time, email
+						type='email'
+						label='Email'
+						// can set value, placeholder only appears when focus on text field
+						placeholder='test@test.com'
+					/>
+					<Grid container spacing={2} justify='center'>
+						<Grid item xs={3} sm={6}>
+							<Paper style={{ height: 75, width: '100%' }} />
+						</Grid>
+						<Grid item xs={3} sm={6}>
+							<Paper style={{ height: 75, width: '100%' }} />
+						</Grid>
+						<Grid item xs={3} sm={6}>
+							<Paper style={{ height: 75, width: '100%' }} />
+						</Grid>
+					</Grid>
+
+					<CheckboxExample />
+					<ButtonGroup variant='contained' color='primary'>
+						<Button startIcon={<SaveIcon />}>Save</Button>
+						<Button startIcon={<DeleteIcon />}>Discard</Button>
+					</ButtonGroup>
+				</div>
+			</Container>
 		</ThemeProvider>
 	);
 }
